@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "743652706316",
+    "firebase_url": "https://healthivity-91b1a.firebaseio.com",
+    "project_id": "healthivity-91b1a",
+    "storage_bucket": "healthivity-91b1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743652706316:android:0cd0cfee92fadaca",
+        "android_client_info": {
+          "package_name": "com.kontrakanelite.healthivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743652706316-9t5ke5sp0snng88g5rcttt8go9st8onc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxUglYKrkL1SZZDpaZioclThJNAbLYj98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743652706316-9t5ke5sp0snng88g5rcttt8go9st8onc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
