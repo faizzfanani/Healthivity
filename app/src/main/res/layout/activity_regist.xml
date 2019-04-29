@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".RegistActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#454042"
-    tools:context=".RegistActivity">
+    android:background="@color/darkGrey"
+    >
 
     <ImageView
         android:layout_width="wrap_content"
@@ -23,6 +28,8 @@
         android:layout_marginLeft="47dp"
         android:layout_marginRight="47dp"
         android:hint="Full name"
+        android:textColor="@color/lightGrey"
+        android:textColorHint="@color/lightGrey"
          />
 
     <EditText
@@ -34,6 +41,8 @@
         android:layout_marginRight="47dp"
         android:layout_marginLeft="47dp"
         android:inputType="textEmailAddress"
+        android:textColor="@color/lightGrey"
+        android:textColorHint="@color/lightGrey"
          />
 
     <EditText
@@ -45,7 +54,22 @@
         android:inputType="number"
         android:layout_marginLeft="47dp"
         android:layout_marginRight="47dp"
+        android:textColor="@color/lightGrey"
+        android:textColorHint="@color/lightGrey"
          />
+
+    <EditText
+        android:id="@+id/etIdRegist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Identity number"
+        android:inputType="number"
+        android:layout_marginLeft="47dp"
+        android:layout_marginRight="47dp"
+        android:textColor="@color/lightGrey"
+        android:textColorHint="@color/lightGrey"
+        />
 
     <EditText
         android:id="@+id/etPasswordRegist"
@@ -56,6 +80,8 @@
         android:layout_marginLeft="47dp"
         android:layout_marginRight="47dp"
         android:inputType="textPassword"
+        android:textColor="@color/lightGrey"
+        android:textColorHint="@color/lightGrey"
          />
 
     <EditText
@@ -67,6 +93,8 @@
         android:layout_marginLeft="47dp"
         android:hint="Retype password"
         android:inputType="textPassword"
+        android:textColor="@color/lightGrey"
+        android:textColorHint="@color/lightGrey"
         />
 
     <Button
@@ -78,17 +106,17 @@
         android:layout_marginLeft="47dp"
         android:text="register"
         android:textAllCaps="false"
-        android:textColor="#fff"
+        android:textColor="@color/lightGrey"
+        android:textColorHint="@color/lightGrey"
         android:background="@drawable/round_background"
         />
 
     <TextView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="already have an account?"
-        android:textColor="#fff"
+        android:textColor="@color/lightGrey"
         android:textAlignment="center"
         />
 
@@ -96,9 +124,11 @@
         android:id="@+id/tvToLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:text="login here"
-        android:textColor="#fff"
+        android:textColor="@color/lightGrey"
         android:textAlignment="center"
          />
 
 </LinearLayout>
+</ScrollView>

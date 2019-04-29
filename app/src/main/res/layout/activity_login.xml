@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#454042"
+    android:background="@color/darkGrey"
     tools:context=".LoginActivity">
 
     <ImageView
@@ -34,9 +34,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-
             android:hint="Email"
             android:inputType="textEmailAddress"
+            android:textColorHint="@color/lightGrey"
+            android:textColor="@color/lightGrey"
             />
     </LinearLayout>
 
@@ -57,7 +58,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="8dp"
             android:hint="password"
-            android:textColor="#fff"
+            android:textColor="@color/lightGrey"
+            android:textColorHint="@color/lightGrey"
             android:inputType="textPassword"
 
             />
@@ -76,7 +78,7 @@
         android:background="@drawable/round_background"
         android:text="login"
         android:textAllCaps="false"
-        android:textColor="#fff"
+        android:textColor="@color/lightGrey"
          />
 
     <TextView
@@ -85,7 +87,7 @@
         android:layout_marginTop="16dp"
         android:textAlignment="center"
         android:text="don't have any account?"
-        android:textColor="#fff"
+        android:textColor="@color/lightGrey"
         />
     <TextView
         android:id="@+id/tvToRegist"
@@ -93,7 +95,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="register here"
-        android:textColor="#fff"
+        android:textColor="@color/lightGrey"
          />
 
 </LinearLayout>

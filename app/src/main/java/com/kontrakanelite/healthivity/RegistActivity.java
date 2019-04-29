@@ -25,7 +25,7 @@ import java.util.List;
 public class RegistActivity extends AppCompatActivity {
 
     private Button btnRegist;
-    private EditText Name, Email, Age;
+    private EditText Name, Email, Age, Identity;
     private EditText Password,ConfirmPassword;
     private TextView linkToLogin;
 
@@ -44,6 +44,7 @@ public class RegistActivity extends AppCompatActivity {
         Name = findViewById(R.id.etNameRegist);
         Email = findViewById(R.id.etEmailRegist);
         Age = findViewById(R.id.etAgeRegist);
+        Identity = findViewById(R.id.etIdRegist);
         Password = findViewById(R.id.etPasswordRegist);
         ConfirmPassword = findViewById(R.id.etRetypePasswordRegist);
         btnRegist = findViewById(R.id.btnRegist);
@@ -56,6 +57,7 @@ public class RegistActivity extends AppCompatActivity {
                 Name.setEnabled(false);
                 Email.setEnabled(false);
                 Age.setEnabled(false);
+                Identity.setEnabled(false);
                 Password.setEnabled(false);
                 ConfirmPassword.setEnabled(false);
                 btnRegist.setEnabled(false);
@@ -77,31 +79,29 @@ public class RegistActivity extends AppCompatActivity {
     private void SignUp(){
         String name = Name.getText().toString().trim();
         String email = Email.getText().toString().trim();
-        int age = Integer.valueOf(Age.getText().toString());
+        String age = Age.getText().toString().trim();
+        String identity = Identity.getText().toString().trim();
         String pass = Password.getText().toString().trim();
         String confirmPass = ConfirmPassword.getText().toString().trim();
 
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        //String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-        if (!TextUtils.isEmpty(email)&&!TextUtils.isEmpty(pass)&&pass.length()>5&&email.matches(emailPattern)&&pass.equals(confirmPass)){
+        if (!TextUtils.isEmpty(email)&&!TextUtils.isEmpty(pass)&&pass.length()>5&&pass.equals(confirmPass)){
             cekEmail();
         }else{
-            if (TextUtils.isEmpty(email)&&!TextUtils.isEmpty(pass)){
-                Toast.makeText(this, "Email must be filled!",Toast.LENGTH_SHORT).show();
-            }else if (TextUtils.isEmpty(pass)&&!TextUtils.isEmpty(email)){
-                Toast.makeText(this, "Password must be filled!",Toast.LENGTH_SHORT).show();
-            }else if(TextUtils.isEmpty(email)&&TextUtils.isEmpty(pass)){
-                Toast.makeText(this, "Please fill the email and password fields!",Toast.LENGTH_SHORT).show();
+            if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(age) || TextUtils.isEmpty(identity) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(confirmPass)) {
+                Toast.makeText(this, "Please fill all the fields!", Toast.LENGTH_SHORT).show();
             }else if (pass.length()<6){
                 Toast.makeText(this, "Password must have at least 6 characters",Toast.LENGTH_SHORT).show();
             }else if (!confirmPass.equals(pass)){
-                Toast.makeText(this, "Please re-type password correctly!",Toast.LENGTH_SHORT).show();
-            }else if(!email.matches(emailPattern)){
-                Toast.makeText(this, "email format : example@domain.com",Toast.LENGTH_SHORT).show();
-            }
+                Toast.makeText(this, "Please re-type password correctly!",Toast.LENGTH_SHORT).show();}
+//            }else if(!email.matches(emailPattern)){
+//                Toast.makeText(this, "email example format : example@domain.com",Toast.LENGTH_SHORT).show();
+//            }
             Name.setEnabled(true);
             Email.setEnabled(true);
             Age.setEnabled(true);
+            Identity.setEnabled(true);
             Password.setEnabled(true);
             ConfirmPassword.setEnabled(true);
             btnRegist.setEnabled(true);
@@ -139,18 +139,20 @@ public class RegistActivity extends AppCompatActivity {
         String name = Name.getText().toString().trim();
         String email = Email.getText().toString().trim();
         int age = Integer.valueOf(Age.getText().toString());
+        String idNumber = Identity.getText().toString().trim();
         String pass = Password.getText().toString().trim();
 
         if (status==true){
             String id = databaseRef.push().getKey();
 
-            User user = new User(id,name,email,age,pass);
+            User user = new User(id,name,email,age,idNumber,pass);
 
             databaseRef.child(id).setValue(user);
 
             Name.getText().clear();
             Email.getText().clear();
             Age.getText().clear();
+            Identity.getText().clear();
             Password.getText().clear();
             ConfirmPassword.getText().clear();
 
@@ -163,6 +165,7 @@ public class RegistActivity extends AppCompatActivity {
         Name.setEnabled(true);
         Email.setEnabled(true);
         Age.setEnabled(true);
+        Identity.setEnabled(true);
         Password.setEnabled(true);
         ConfirmPassword.setEnabled(true);
         btnRegist.setEnabled(true);
