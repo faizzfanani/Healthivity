@@ -27,6 +27,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="47dp"
         android:layout_marginRight="47dp"
+
         android:hint="Full name"
         android:textColor="@color/lightGrey"
         android:textColorHint="@color/lightGrey"
@@ -40,9 +41,10 @@
         android:hint="Email"
         android:layout_marginRight="47dp"
         android:layout_marginLeft="47dp"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
         android:inputType="textEmailAddress"
-        android:textColor="@color/lightGrey"
-        android:textColorHint="@color/lightGrey"
+
          />
 
     <EditText
@@ -77,6 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="Password"
+
         android:layout_marginLeft="47dp"
         android:layout_marginRight="47dp"
         android:inputType="textPassword"
@@ -91,6 +94,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="47dp"
         android:layout_marginLeft="47dp"
+        
         android:hint="Retype password"
         android:inputType="textPassword"
         android:textColor="@color/lightGrey"
