@@ -177,7 +177,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <android.support.v7.widget.RecyclerView
-
                 android:id="@+id/rvKategoriHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -193,6 +192,7 @@
                 android:text="popular communities"/>
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvListPopular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:listitem="@layout/list_activity">
@@ -200,8 +200,6 @@
             </android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
-
-
 
     </android.support.v4.widget.NestedScrollView>
 

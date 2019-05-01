@@ -8,8 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
+        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".KategoriActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistActivity" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".HomeActivity" />
     </application>
 
 </manifest>
