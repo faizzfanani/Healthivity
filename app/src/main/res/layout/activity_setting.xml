@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingActivity"
-    android:orientation="vertical"
+
     android:background="@drawable/background_home">
 
     <RelativeLayout
@@ -52,5 +52,21 @@
         </LinearLayout>
 
     </RelativeLayout>
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="46dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/background_button_logout"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:drawableRight="@drawable/logout"
+        android:text="logout"/>
 
-</LinearLayout>
+</RelativeLayout>
