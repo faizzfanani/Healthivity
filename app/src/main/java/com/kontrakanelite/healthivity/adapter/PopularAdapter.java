@@ -9,17 +9,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.kontrakanelite.healthivity.DetailActivity;
 import com.kontrakanelite.healthivity.KategoriActivity;
+import com.kontrakanelite.healthivity.Komunitas;
 import com.kontrakanelite.healthivity.R;
 import com.kontrakanelite.healthivity.model.PopularModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
     Context context;
     private ArrayList<PopularModel> popularModels ;
 
+    List<Komunitas> komunitas = new ArrayList<>();
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    DatabaseReference databaseRef;
+    // Create a storage reference from our app
+    StorageReference storageRef = storage.getReference();
     public PopularAdapter(Context context, ArrayList<PopularModel> popularModels) {
         this.context = context;
         this.popularModels = popularModels;
@@ -42,8 +55,26 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("Detail", popularModels.get(position).getNamaPopular());
+                intent.putExtra("Nama", popularModels.get(position).getNamaPopular());
                 context.startActivity(intent );
+            }
+        });
+    }
+
+    private void getAllKomunitas(){
+        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                komunitas.clear();
+                for (DataSnapshot komunSnapshot : dataSnapshot.getChildren()){
+                    Komunitas komun = komunSnapshot.getValue(Komunitas.class);
+                    komunitas.add(komun);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
     }
@@ -60,8 +91,6 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
             super(itemView);
             tvNamaPopular = (TextView) itemView.findViewById(R.id.tvNamaPopular);
             tvJumlahMember = (TextView) itemView.findViewById(R.id.tvJumlahMemberPopular);
-
-
         }
     }
 }

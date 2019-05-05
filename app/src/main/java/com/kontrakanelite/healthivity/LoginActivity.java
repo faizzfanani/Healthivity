@@ -128,6 +128,8 @@ public class LoginActivity extends AppCompatActivity {
             getEmail = Email.getText().toString();
             Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
             intent.putExtra(USER_EMAIL,status);
+            intent.putExtra("usia",userList.get(0).getAge());
+            intent.putExtra("nama",userList.get(0).getName());
             startActivity(intent);
             finish();
         }

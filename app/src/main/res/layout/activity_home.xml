@@ -40,12 +40,13 @@
                         />
 
                     <TextView
+                        android:id="@+id/ageText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="25 years old"
+                        android:textColor="#ececec"
                         android:textSize="15sp"
-                        android:textStyle="normal"
-                        android:textColor="#ececec"/>
+                        android:textStyle="normal" />
                 </LinearLayout>
 
             </LinearLayout>

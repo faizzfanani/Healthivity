@@ -22,6 +22,7 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.ViewHo
     private ArrayList<KategoriModel> kategoriModels;
     Context context;
 
+
     public KategoriAdapter(Context context, ArrayList<KategoriModel> kategoriModels) {
         this.kategoriModels = kategoriModels;
         this.context = context;

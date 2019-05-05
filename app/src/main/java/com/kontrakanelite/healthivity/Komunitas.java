@@ -6,21 +6,22 @@ public class Komunitas {
 
     private String idKomunitas;
     private String namaKomunitas;
-    private String deskripsiKomunitas;
-    private String [] jadwalKumpul;
-    private String longitude;
-    private String latitude;
+    //private String deskripsiKomunitas;
+    private String jadwalKomunitas;
+    private float longitude;
+    private float latitude;
+    private String kategori;
 
     public Komunitas() {
     }
 
-    public Komunitas(String idKomunitas, String namaKomunitas, String deskripsiKomunitas, String [] jadwalKumpul, String longitude, String latitude) {
+    public Komunitas(String idKomunitas, String namaKomunitas, String jadwalKomunitas, float longitude, float latitude, String kategori) {
         this.idKomunitas = idKomunitas;
         this.namaKomunitas = namaKomunitas;
-        this.deskripsiKomunitas = deskripsiKomunitas;
-        this.jadwalKumpul = jadwalKumpul;
+        this.jadwalKomunitas = jadwalKomunitas;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.kategori = kategori;
     }
 
     public String getIdKomunitas() {
@@ -39,35 +40,35 @@ public class Komunitas {
         this.namaKomunitas = namaKomunitas;
     }
 
-    public String getDeskripsiKomunitas() {
-        return deskripsiKomunitas;
+    public String getJadwalKomunitas() {
+        return jadwalKomunitas;
     }
 
-    public void setDeskripsiKomunitas(String deskripsiKomunitas) {
-        this.deskripsiKomunitas = deskripsiKomunitas;
+    public void setJadwalKomunitas(String jadwalKomunitas) {
+        this.jadwalKomunitas = jadwalKomunitas;
     }
 
-    public String [] getJadwalKumpul() {
-        return jadwalKumpul;
-    }
-
-    public void setJadwalKumpul(String [] jadwalKumpul) {
-        this.jadwalKumpul = jadwalKumpul;
-    }
-
-    public String getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 
-    public String getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
+    }
+
+    public String getKategori() {
+        return kategori;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
     }
 }
