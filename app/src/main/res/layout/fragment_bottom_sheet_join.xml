@@ -16,45 +16,6 @@
         android:layout_margin="10dp"
         android:layout_gravity="center"
         android:src="@drawable/ic_down"/>
-    <EditText
-        android:id="@+id/etNoKTP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/round_background_join"
-        android:hint="   identity number(id card, license, etc)"/>
-
-    <EditText
-        android:id="@+id/etProfesi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/round_background_join"
-        android:hint="   profession"/>
-
-    <EditText
-        android:id="@+id/etAlamatSekarang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/round_background_join"
-        android:hint="   current address"/>
-
-    <EditText
-        android:id="@+id/etNoTelp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/round_background_join"
-        android:hint="   phone number"/>
 
     <TextView
         android:layout_width="wrap_content"

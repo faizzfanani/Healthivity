@@ -1,11 +1,14 @@
 package com.kontrakanelite.healthivity;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +31,7 @@ public class KategoriActivity extends AppCompatActivity {
     DatabaseReference databaseRef;
     String kategori;
     TextView nama, usia, jumlahKom;
+    private SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +42,34 @@ public class KategoriActivity extends AppCompatActivity {
         getKomunitasByKategori();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.rvListKategori);
-        KomunitasAdapter komunitasAdapter = new KomunitasAdapter(getApplicationContext(), (ArrayList<Komunitas>) komunitas);
+        final KomunitasAdapter komunitasAdapter = new KomunitasAdapter(getApplicationContext(), (ArrayList<Komunitas>) komunitas);
         recyclerView1.setLayoutManager(linearLayoutManager);
         recyclerView1.setAdapter(komunitasAdapter);
         jumlahKom = findViewById(R.id.tvJumlahKomunitas);
         jumlahKom.setText(komunitas.size()+" ");
+
+
+        searchView = findViewById(R.id.searchVw);
+        searchView.setIconifiedByDefault(false);
+        searchView.setQueryHint("Search community");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // filter recycler view when query submitted
+                komunitasAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                // filter recycler view when text is changed
+                komunitasAdapter.getFilter().filter(query);
+                return false;
+            }
+        });
     }
+
+
 
     private void getKomunitasByKategori(){
         databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {

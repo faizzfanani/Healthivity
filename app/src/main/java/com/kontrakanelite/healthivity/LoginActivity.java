@@ -126,10 +126,11 @@ public class LoginActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this,"Login success!",Toast.LENGTH_LONG).show();
             getEmail = Email.getText().toString();
-            Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+            final Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
             intent.putExtra(USER_EMAIL,status);
             intent.putExtra("usia",userList.get(0).getAge());
             intent.putExtra("nama",userList.get(0).getName());
+            intent.putExtra("idUser",userList.get(0).getIdNumber());
             startActivity(intent);
             finish();
         }

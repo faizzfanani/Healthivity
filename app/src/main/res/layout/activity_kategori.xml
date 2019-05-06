@@ -119,16 +119,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:padding="5dp"
-            android:id="@+id/search_editText"
+        <android.support.v7.widget.SearchView
+            android:id="@+id/searchVw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/search_bar_drawable"
-            android:layout_margin="10dp"
-            android:textColor="#454042"
-            android:hint="search community.."
-            android:drawableLeft="@drawable/search"/>
+            android:queryHint="Search communities"
+            android:inputType="text"/>
 
     </RelativeLayout>
 
@@ -142,7 +138,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="14dp"
-                android:text="popular communities"/>
+                android:text="All communities"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvListKategori"

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -23,6 +25,7 @@ import com.kontrakanelite.healthivity.adapter.KategoriAdapter;
 import com.kontrakanelite.healthivity.adapter.KomunitasAdapter;
 import com.kontrakanelite.healthivity.adapter.PopularAdapter;
 import com.kontrakanelite.healthivity.model.KategoriModel;
+import com.kontrakanelite.healthivity.model.Member;
 import com.kontrakanelite.healthivity.model.PopularModel;
 
 import java.util.ArrayList;
@@ -34,11 +37,15 @@ public class HomeActivity extends AppCompatActivity {
     List<KategoriModel> kategoriModels = new ArrayList<>();
     List<PopularModel> popularModels = new ArrayList<>();
     List<Komunitas> komunitas = new ArrayList<>();
+    List<Member> member = new ArrayList<>();
+    int jumlahJoin, jumlahPending;
     FirebaseStorage storage = FirebaseStorage.getInstance();
-    DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("komunitas");
+    DatabaseReference komunitasRef = FirebaseDatabase.getInstance().getReference("komunitas");
+    DatabaseReference memberRef = FirebaseDatabase.getInstance().getReference("member");
     // Create a storage reference from our app
     StorageReference storageRef = storage.getReference();
-    String name; int age;
+    String name, idU; int age;
+    private SearchView searchView;
     TextView nama, usia, jumlahKom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +54,10 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         name = intent.getStringExtra("nama");
         age = intent.getIntExtra("usia",0);
+        idU = intent.getStringExtra("idUser");
         nama = findViewById(R.id.tvNameHome);
         usia = findViewById(R.id.ageText);
-        usia.setText(age+" years old");
+        usia.setText(age+" years old"+idU);
         nama.setText(name);
         getAllKomunitas();
         rvKategori = findViewById(R.id.rvKategoriHome);
@@ -61,6 +69,8 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
 
         kategoriModels.add(new KategoriModel("Swim", R.drawable.kat_swim));
@@ -87,11 +97,30 @@ public class HomeActivity extends AppCompatActivity {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.rvListPopular);
-        KomunitasAdapter komunitasAdapter = new KomunitasAdapter(getApplicationContext(), (ArrayList<Komunitas>) komunitas);
+        final KomunitasAdapter komunitasAdapter = new KomunitasAdapter(getApplicationContext(), (ArrayList<Komunitas>) komunitas);
         recyclerView1.setLayoutManager(linearLayoutManager);
         recyclerView1.setAdapter(komunitasAdapter);
         jumlahKom = findViewById(R.id.tvJumlahKomunitas);
         jumlahKom.setText(komunitas.size()+" ");
+
+        searchView = findViewById(R.id.searchVw);
+        searchView.setIconifiedByDefault(false);
+        searchView.setQueryHint("Search community");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // filter recycler view when query submitted
+                komunitasAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                // filter recycler view when text is changed
+                komunitasAdapter.getFilter().filter(query);
+                return false;
+            }
+        });
         /*LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.rvListPopular);
         PopularAdapter popularAdapter = new PopularAdapter(getApplicationContext(), (ArrayList<PopularModel>) popularModels);
@@ -99,8 +128,29 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView1.setAdapter(popularAdapter);*/
     }
 
+    private void getMembership(){
+        memberRef.addListenerForSingleValueEvent(new ValueEventListener(){
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot){
+            member.clear();
+
+            for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()){
+                GenericTypeIndicator<List<String>> t = new GenericTypeIndicator<List<String>>() {};
+                List mem = memberSnapshot.getValue(t);
+                if(memberSnapshot.getKey().equals(idU)){
+
+                }
+            }
+        }
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    });
+    }
+
     private void getAllKomunitas(){
-        databaseRef.addListenerForSingleValueEvent(new ValueEventListener(){
+        komunitasRef.addListenerForSingleValueEvent(new ValueEventListener(){
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot){
                 komunitas.clear();
