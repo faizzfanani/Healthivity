@@ -1,4 +1,4 @@
-package com.kontrakanelite.healthivity;
+package com.kontrakanelite.healthivity.model;
 
 import java.util.ArrayList;
 

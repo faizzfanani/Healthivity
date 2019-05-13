@@ -1,4 +1,4 @@
-package com.kontrakanelite.healthivity;
+package com.kontrakanelite.healthivity.model;
 
 public class User {
     private String name;

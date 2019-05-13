@@ -16,8 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.kontrakanelite.healthivity.DetailActivity;
-import com.kontrakanelite.healthivity.KategoriActivity;
-import com.kontrakanelite.healthivity.Komunitas;
+import com.kontrakanelite.healthivity.model.Komunitas;
 import com.kontrakanelite.healthivity.R;
 import com.kontrakanelite.healthivity.model.PopularModel;
 

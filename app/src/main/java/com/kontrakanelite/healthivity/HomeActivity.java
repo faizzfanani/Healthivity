@@ -1,7 +1,6 @@
 package com.kontrakanelite.healthivity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,8 +22,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.kontrakanelite.healthivity.adapter.KategoriAdapter;
 import com.kontrakanelite.healthivity.adapter.KomunitasAdapter;
-import com.kontrakanelite.healthivity.adapter.PopularAdapter;
 import com.kontrakanelite.healthivity.model.KategoriModel;
+import com.kontrakanelite.healthivity.model.Komunitas;
 import com.kontrakanelite.healthivity.model.Member;
 import com.kontrakanelite.healthivity.model.PopularModel;
 
@@ -57,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         idU = intent.getStringExtra("idUser");
         nama = findViewById(R.id.tvNameHome);
         usia = findViewById(R.id.ageText);
-        usia.setText(age+" years old"+idU);
+        usia.setText(age+" years old");
         nama.setText(name);
         getAllKomunitas();
         rvKategori = findViewById(R.id.rvKategoriHome);

@@ -1,7 +1,5 @@
 package com.kontrakanelite.healthivity;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -18,8 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.kontrakanelite.healthivity.adapter.KomunitasAdapter;
-import com.kontrakanelite.healthivity.adapter.PopularAdapter;
-import com.kontrakanelite.healthivity.model.PopularModel;
+import com.kontrakanelite.healthivity.model.Komunitas;
 
 import java.util.ArrayList;
 import java.util.List;

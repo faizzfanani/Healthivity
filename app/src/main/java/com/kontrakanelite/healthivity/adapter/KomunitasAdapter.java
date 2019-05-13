@@ -11,10 +11,8 @@ import android.widget.Filter;
 import android.widget.TextView;
 
 import com.kontrakanelite.healthivity.DetailActivity;
-import com.kontrakanelite.healthivity.KategoriActivity;
-import com.kontrakanelite.healthivity.Komunitas;
+import com.kontrakanelite.healthivity.model.Komunitas;
 import com.kontrakanelite.healthivity.R;
-import com.kontrakanelite.healthivity.model.PopularModel;
 
 import java.util.ArrayList;
 
