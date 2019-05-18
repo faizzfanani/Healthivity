@@ -42,9 +42,6 @@ public class KategoriActivity extends AppCompatActivity {
         final KomunitasAdapter komunitasAdapter = new KomunitasAdapter(getApplicationContext(), (ArrayList<Komunitas>) komunitas);
         recyclerView1.setLayoutManager(linearLayoutManager);
         recyclerView1.setAdapter(komunitasAdapter);
-        jumlahKom = findViewById(R.id.tvJumlahKomunitas);
-        jumlahKom.setText(komunitas.size()+" ");
-
 
         searchView = findViewById(R.id.searchVw);
         searchView.setIconifiedByDefault(false);
@@ -65,8 +62,6 @@ public class KategoriActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     private void getKomunitasByKategori(){
         databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {

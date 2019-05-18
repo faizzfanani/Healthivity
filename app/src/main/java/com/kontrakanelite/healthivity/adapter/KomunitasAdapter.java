@@ -93,11 +93,9 @@ public class KomunitasAdapter extends RecyclerView.Adapter<KomunitasAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvNamaPopular;
-        TextView tvJumlahMember;
         public ViewHolder(View itemView) {
             super(itemView);
             tvNamaPopular = (TextView) itemView.findViewById(R.id.tvNamaPopular);
-            tvJumlahMember = (TextView) itemView.findViewById(R.id.tvJumlahMemberPopular);
         }
     }
 }

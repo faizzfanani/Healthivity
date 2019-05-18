@@ -25,7 +25,6 @@ import com.kontrakanelite.healthivity.adapter.KomunitasAdapter;
 import com.kontrakanelite.healthivity.model.KategoriModel;
 import com.kontrakanelite.healthivity.model.Komunitas;
 import com.kontrakanelite.healthivity.model.Member;
-import com.kontrakanelite.healthivity.model.PopularModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +33,9 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView rvKategori;
     private ImageView ivSetting;
     List<KategoriModel> kategoriModels = new ArrayList<>();
-    List<PopularModel> popularModels = new ArrayList<>();
     List<Komunitas> komunitas = new ArrayList<>();
     List<Member> member = new ArrayList<>();
-    int jumlahJoin, jumlahPending;
+
     FirebaseStorage storage = FirebaseStorage.getInstance();
     DatabaseReference komunitasRef = FirebaseDatabase.getInstance().getReference("komunitas");
     DatabaseReference memberRef = FirebaseDatabase.getInstance().getReference("member");
@@ -69,22 +67,12 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
-
-
         kategoriModels.add(new KategoriModel("Swim", R.drawable.kat_swim));
         kategoriModels.add(new KategoriModel("Gym", R.drawable.kat_gym));
         kategoriModels.add(new KategoriModel("Yoga", R.drawable.kat_yoga));
         kategoriModels.add(new KategoriModel("Dance", R.drawable.kat_dance));
         kategoriModels.add(new KategoriModel("Football", R.drawable.kat_bicycling));
         kategoriModels.add(new KategoriModel("Martial Arts", R.drawable.kat_material_arts1));
-
-        popularModels.add(new PopularModel("Karate Malang", "80 members"));
-        popularModels.add(new PopularModel("Karate Malang", "80 members"));
-        popularModels.add(new PopularModel("Karate Malang", "80 members"));
-        popularModels.add(new PopularModel("Karate Malang", "80 members"));
-        popularModels.add(new PopularModel("Karate Malang", "80 members"));
-        popularModels.add(new PopularModel("Karate Malang", "80 members"));
 
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),3);
@@ -99,8 +87,6 @@ public class HomeActivity extends AppCompatActivity {
         final KomunitasAdapter komunitasAdapter = new KomunitasAdapter(getApplicationContext(), (ArrayList<Komunitas>) komunitas);
         recyclerView1.setLayoutManager(linearLayoutManager);
         recyclerView1.setAdapter(komunitasAdapter);
-        jumlahKom = findViewById(R.id.tvJumlahKomunitas);
-        jumlahKom.setText(komunitas.size()+" ");
 
         searchView = findViewById(R.id.searchVw);
         searchView.setIconifiedByDefault(false);
@@ -120,11 +106,7 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
-        /*LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.rvListPopular);
-        PopularAdapter popularAdapter = new PopularAdapter(getApplicationContext(), (ArrayList<PopularModel>) popularModels);
-        recyclerView1.setLayoutManager(linearLayoutManager);
-        recyclerView1.setAdapter(popularAdapter);*/
+
     }
 
     private void getMembership(){

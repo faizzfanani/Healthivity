@@ -2,20 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin = "5dp"
     >
 
         <ImageView
             android:id="@+id/ivKategoriHome"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_width="150dp"
+            android:layout_height="150dp" />
 
         <TextView
             android:id="@+id/tvKategoriHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textColor="#000"
-            android:text="Swim" />
+            android:fontFamily="@font/bangers"
+            android:text="Swim"
+            android:textSize="20sp"
+            android:textColor="#99FFFFFF" />
 
 </RelativeLayout>
