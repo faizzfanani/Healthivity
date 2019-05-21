@@ -106,7 +106,6 @@ public class LoginActivity extends AppCompatActivity {
                         userList.add(user);
                     }
                 }
-
                 if (userList.size()>0){
                     SignIn(email);
                 }else{
@@ -136,12 +135,9 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
         Email.setEnabled(true);
         Password.setEnabled(true);
         Login.setEnabled(true);
         Regist.setEnabled(true);
     }
-
-
 }

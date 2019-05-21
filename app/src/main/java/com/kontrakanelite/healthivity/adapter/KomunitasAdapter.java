@@ -46,10 +46,11 @@ public class KomunitasAdapter extends RecyclerView.Adapter<KomunitasAdapter.View
                 Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra("id", komunitasModelsFiltered.get(position).getIdKomunitas());
                 intent.putExtra("nama", komunitasModelsFiltered.get(position).getNamaKomunitas());
+                intent.putExtra("kategori", komunitasModelsFiltered.get(position).getKategori());
                 intent.putExtra("jadwal", komunitasModelsFiltered.get(position).getJadwalKomunitas());
                 intent.putExtra("latitude", komunitasModelsFiltered.get(position).getLatitude());
                 intent.putExtra("longitude", komunitasModelsFiltered.get(position).getLongitude());
-                context.startActivity(intent );
+                context.startActivity(intent);
             }
         });
     }

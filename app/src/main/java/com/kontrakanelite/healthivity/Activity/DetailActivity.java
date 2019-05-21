@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 public class DetailActivity extends FragmentActivity implements OnMapReadyCallback {
     LinearLayout layoutBottomJoin;
-    Button btnJoin; TextView namaKomunitas, jadwalKomunitas;
+    Button btnJoin; TextView namaKomunitas, jadwalKomunitas, tvKategori;
     private ImageView back, ivKategori;
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationClient;
@@ -61,10 +61,13 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
         jadwalKomunitas = findViewById(R.id.tvDeskripsi);
         back = findViewById(R.id.ivBackDetail);
         ivKategori = findViewById(R.id.ivFotoDetail);
+        tvKategori = findViewById(R.id.tvKategori);
 
         namaKomunitas.setText(intent.getStringExtra("nama"));
+        tvKategori.setText(intent.getStringExtra("kategori"));
         latitude = intent.getFloatExtra("latitude",0);
         longitude = intent.getFloatExtra("longitude",0);
+
         //latitude sama longitude ini diubah jadi address biasa, sama dikasih gmapsnya kalo bisa
         jadwalKomunitas.setText("Jadwal kumpul: \n"+intent.getStringExtra("jadwal"));
 
@@ -87,6 +90,24 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
         listPoints = new ArrayList<>();
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        SetImage();
+    }
+
+    public void SetImage(){
+        String check = tvKategori.getText().toString();
+        if (check.contentEquals("football")){
+            ivKategori.setImageResource(R.drawable.kat_bicycling);
+        } else if (check.contentEquals("gym")){
+            ivKategori.setImageResource(R.drawable.kat_gym);
+        }else if (check.contentEquals("yoga")){
+            ivKategori.setImageResource(R.drawable.kat_yoga);
+        }else if (check.contentEquals("dance")){
+            ivKategori.setImageResource(R.drawable.kat_dance);
+        }else if (check.contentEquals("swim")){
+            ivKategori.setImageResource(R.drawable.kat_swim);
+        }else if (check.contentEquals("martial arts")){
+            ivKategori.setImageResource(R.drawable.kat_material_arts1);
+        }
     }
 
     private LocationRequest getLocationRequest() {
