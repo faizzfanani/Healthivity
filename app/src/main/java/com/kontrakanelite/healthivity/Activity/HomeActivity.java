@@ -1,4 +1,4 @@
-package com.kontrakanelite.healthivity;
+package com.kontrakanelite.healthivity.Activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -20,6 +20,7 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.kontrakanelite.healthivity.R;
 import com.kontrakanelite.healthivity.adapter.KategoriAdapter;
 import com.kontrakanelite.healthivity.adapter.KomunitasAdapter;
 import com.kontrakanelite.healthivity.model.KategoriModel;
@@ -31,7 +32,7 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
     private RecyclerView rvKategori;
-    private ImageView ivSetting;
+    private ImageView logout;
     List<KategoriModel> kategoriModels = new ArrayList<>();
     List<Komunitas> komunitas = new ArrayList<>();
     List<Member> member = new ArrayList<>();
@@ -58,12 +59,13 @@ public class HomeActivity extends AppCompatActivity {
         nama.setText(name);
         getAllKomunitas();
         rvKategori = findViewById(R.id.rvKategoriHome);
-        ivSetting = (ImageView) findViewById(R.id.ivSettingHome);
-        ivSetting.setOnClickListener(new View.OnClickListener() {
+        logout = (ImageView) findViewById(R.id.ivLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, SettingActivity.class);
+                Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

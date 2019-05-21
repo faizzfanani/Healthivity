@@ -17,7 +17,7 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/bangers"
             android:text="Swim"
-            android:textSize="20sp"
-            android:textColor="#99FFFFFF" />
+            android:textColor="#99FFFFFF"
+            android:textSize="20sp" />
 
 </RelativeLayout>

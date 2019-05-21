@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.TextView;
 
-import com.kontrakanelite.healthivity.DetailActivity;
+import com.kontrakanelite.healthivity.Activity.DetailActivity;
 import com.kontrakanelite.healthivity.model.Komunitas;
 import com.kontrakanelite.healthivity.R;
 

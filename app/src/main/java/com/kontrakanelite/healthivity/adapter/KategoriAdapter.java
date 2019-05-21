@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.kontrakanelite.healthivity.KategoriActivity;
+import com.kontrakanelite.healthivity.Activity.KategoriActivity;
 import com.kontrakanelite.healthivity.R;
 import com.kontrakanelite.healthivity.model.KategoriModel;
 
