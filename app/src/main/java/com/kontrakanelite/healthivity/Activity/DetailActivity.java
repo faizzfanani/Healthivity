@@ -96,17 +96,17 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
     public void SetImage(){
         String check = tvKategori.getText().toString();
         if (check.contentEquals("football")){
-            ivKategori.setImageResource(R.drawable.kat_bicycling);
+            ivKategori.setImageResource(R.drawable.sepakbola);
         } else if (check.contentEquals("gym")){
-            ivKategori.setImageResource(R.drawable.kat_gym);
+            ivKategori.setImageResource(R.drawable.gym);
         }else if (check.contentEquals("yoga")){
-            ivKategori.setImageResource(R.drawable.kat_yoga);
+            ivKategori.setImageResource(R.drawable.yoga);
         }else if (check.contentEquals("dance")){
-            ivKategori.setImageResource(R.drawable.kat_dance);
+            ivKategori.setImageResource(R.drawable.dance);
         }else if (check.contentEquals("swim")){
-            ivKategori.setImageResource(R.drawable.kat_swim);
+            ivKategori.setImageResource(R.drawable.renang);
         }else if (check.contentEquals("martial arts")){
-            ivKategori.setImageResource(R.drawable.kat_material_arts1);
+            ivKategori.setImageResource(R.drawable.bela_diri);
         }
     }
 
